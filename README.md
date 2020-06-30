@@ -38,7 +38,7 @@
 
 1. Get Java Bridge Jar
 
-	- Goto https://github.com/Thasarathan/samco/tree/master/dist
+	- Goto https://github.com/Thasarathan/Java-Bridge/tree/master/dist
 
 2. Setup Jar File
 

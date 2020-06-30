@@ -55,6 +55,12 @@
 		           <artifactId>swagger-java-client</artifactId>
 		           <version>1.0.0</version>
 	           </dependency>
+		   
+      - for gradle user 
+   
+                  dependencies {
+   			   compile group: 'in.samco', name: 'stockNote-api-Java-Bridge', version: '1.0.0'
+			   }
 
 
 

@@ -50,7 +50,7 @@
 	
 	  mvn install:install-file -Dfile="where the jar is located" -DgroupId=io.swagger -DartifactId=swagger-java-client -Dversion=1.0.0 -Dpackaging=jar
 
-        	<dependency>
+        	   <dependency>
 		           <groupId>io.swagger</groupId>
 		           <artifactId>swagger-java-client</artifactId>
 		           <version>1.0.0</version>

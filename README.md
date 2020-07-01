@@ -76,7 +76,7 @@
 
     UserLoginApi userLoginApi = new UserLoginApi();
     LoginRequest loginRequest = new LoginRequest();
-    loginRequest.setUserId(user_id);
+    loginRequest.setUserId(userId);
     loginRequest.setPassword(password);
     loginRequest.setYob(yob);
     LoginResponse loginResponse = userLoginApi.login(loginRequest);
@@ -115,12 +115,12 @@
 
 #### Parameters:
 
-    session_token, exchange, symbol_name
+    xSessionToken, exchange, symbolName
     
 #### Sample Quote request:
 
     QuoteApi quoteApi = new QuoteApi();
-    MarketDepthResponse quote = quoteApi.getQuote(session_token, "SBIN", "NSE");
+    MarketDepthResponse quote = quoteApi.getQuote(xSessionToken, "SBIN", SamcoConstants.EXCHANGE_NSE);
      
 #### Sample Quote Response:
 
@@ -188,12 +188,12 @@
 
 #### Parameters:
 
-    session_token, exchange, symbol_name
+    xSessionToken, exchange, searchSymbolName
     
 #### Sample Search Request:
 
     SearchEquityDerivativeApi api = new SearchEquityDerivativeApi();
-    EquitySearchResponse searchEquityDerivative = api.searchEquityDerivative(session_token, symbol_name, exchange);
+    EquitySearchResponse searchEquityDerivative = api.searchEquityDerivative(xSessionToken, "GOLD", SamcoConstants.EXCHANGE_MFO);
    
 #### Sample Search Response:
 
@@ -230,7 +230,7 @@
     
 #### Parameters:
 
-    session_token, symbol_name, exchange, transactionType, orderType, price, quantity, disclosedQuantity, orderValidity, productType, marketProtection
+    xSessionToken, symbolName, exchange, transactionType, orderType, price, quantity, disclosedQuantity, orderValidity, productType, marketProtection, afterMarketOrderFlag
     
 #### Sample PlaceOrder Request:
 
@@ -238,15 +238,15 @@
     OrdersApi ordersApi = new OrdersApi();
     OrderRequest orderRequest = new OrderRequest();
     orderRequest.setSymbolName("RELIANCE");
-    orderRequest.setExchange("BSE");
-    orderRequest.setTransactionType("BUY");
-    orderRequest.setOrderType("MKT");
+    orderRequest.setExchange(SamcoConstants.EXCHANGE_BSE);
+    orderRequest.setTransactionType(SamcoConstants.TRANSACTION_TYPE_BUY);
+    orderRequest.setOrderType(SamcoConstants.ORDER_TYPE_MARKET);
     orderRequest.setQuantity("2");
     orderRequest.setDisclosedQuantity("");
-    orderRequest.setOrderValidity("DAY");
-    orderRequest.setProductType("MIS");
+    orderRequest.setOrderValidity(SamcoConstants.VALIDITY_DAY);
+    orderRequest.setProductType(SamcoConstants.PRODUCT_MIS);
     orderRequest.setAfterMarketOrderFlag("NO");		
-    OrderResponse placeOrder = ordersApi.placeOrder("e73c9229e8ce005ebbb86d5653e6e8b3", orderRequest);
+    OrderResponse placeOrder = ordersApi.placeOrder(xSessionToken, orderRequest);
 		     
 #### Sample PlaceOrder Response:  
 
@@ -284,12 +284,12 @@
      
 #### Parameters:
 
-    session_token, order_number
+    xSessionToken, orderNumber
     
 #### Sample OrderStatus Request:
 
     OrdersApi ordersApi = new OrdersApi();
-    OrderStatusResponse orderStatusResponse = ordersApi.getOrderStatus(session_token, "200618000000010");
+    OrderStatusResponse orderStatusResponse = ordersApi.getOrderStatus(xSessionToken, "200618000000010");
 
 #### Sample OrderStatus Response:
 
@@ -326,14 +326,14 @@
         
 #### Parameters:
 
-    session_token, order_number, orderType, quantity, disclosedQuantity, orderValidity, price, triggerPrice, parentOrderId, marketProtection
+    xSessionToken, orderNumber, orderType, quantity, disclosedQuantity, orderValidity, price, triggerPrice, parentOrderId, marketProtection
     
 #### Sample ModifyOrder Request:
 
     OrdersApi ordersApi = new OrdersApi();
     ModifyOrderRequest modifyOrderRequest = new ModifyOrderRequest();
     modifyOrderRequest.setQuantity("20");
-    OrderResponse modifyOrder = ordersApi.modifyOrder(session_token, "200529000000059", modifyOrderRequest);
+    OrderResponse modifyOrder = ordersApi.modifyOrder(xSessionToken, "200529000000059", modifyOrderRequest);
 
 #### Sample ModifyOrder Response:
 
@@ -371,12 +371,12 @@
       
 #### Parameters:
 
-    session_token, order_number
+    xSessionToken, orderNumber
     
 #### Sample CancelOrder Request:
 
     OrdersApi ordersApi = new OrdersApi();
-    CancelOrderResponse cancelOrderResponse = ordersApi.cancelOrder(session_token, "200529000000059");
+    CancelOrderResponse cancelOrderResponse = ordersApi.cancelOrder(xSessionToken, "200529000000059");
     
 #### Sample CancelOrder Response:
 
@@ -394,22 +394,22 @@
         
 #### Parameters:
 
-    session_token, symbol_name, exchange, transactionType, orderType, price, quantity, disclosedQuantity, orderValidity, productType, marketProtection, triggerPrice
+    xSessionToken, symbolName, exchange, transactionType, orderType, price, quantity, disclosedQuantity, orderValidity, productType, marketProtection, triggerPrice
     
 #### Sample PlaceOrderCO Request:
 
     OrdersApi ordersApi = new OrdersApi();
     OrderRequestCO orderRequest = new OrderRequestCO();
     orderRequest.setSymbolName("RELIANCE");
-    orderRequest.setExchange("NSE");
-    orderRequest.setTransactionType("BUY");
-    orderRequest.setOrderType("MKT");
+    orderRequest.setExchange(SamcoConstants.EXCHANGE_NSE);
+    orderRequest.setTransactionType(SamcoConstants.TRANSACTION_TYPE_BUY);
+    orderRequest.setOrderType(SamcoConstants.ORDER_TYPE_MARKET);
     orderRequest.setQuantity("15");
     orderRequest.setDisclosedQuantity("");
-    orderRequest.setOrderValidity("DAY");
-    orderRequest.setProductType("CO");
+    orderRequest.setOrderValidity(SamcoConstants.VALIDITY_DAY);
+    orderRequest.setProductType(SamcoConstants.PRODUCT_CO);
     orderRequest.setTriggerPrice("1300");
-    OrderResponseCO placeOrderCO = ordersApi.placeOrderCO("d7a319e146521bebe3ef9faf788d9c74", orderRequest);
+    OrderResponseCO placeOrderCO = ordersApi.placeOrderCO(xSessionToken, orderRequest);
     
 #### Sample PlaceOrderCO Response:
 
@@ -447,27 +447,27 @@
         
 #### Parameters:
 
-    session_token, exchange, symbolName, transactionType, orderType, quantity, disclosedQuantity, price, priceType, valueType, orderValidity, productType, squareOffValue, stopLossValue, trailingStopLoss
+    xSessionToken, exchange, symbolName, transactionType, orderType, quantity, disclosedQuantity, price, priceType, valueType, orderValidity, productType, squareOffValue, stopLossValue, trailingStopLoss
     
 #### Sample PlaceOrderBO Request:
 
     OrdersApi ordersApi = new OrdersApi();
     OrderRequestBO orderRequest = new OrderRequestBO();
     orderRequest.setSymbolName("TCS");
-    orderRequest.setExchange("BSE");
-    orderRequest.setTransactionType("BUY");
-    orderRequest.setOrderType("L");
+    orderRequest.setExchange(SamcoConstants.EXCHANGE_BSE);
+    orderRequest.setTransactionType(SamcoConstants.TRANSACTION_TYPE_BUY);
+    orderRequest.setOrderType(SamcoConstants.ORDER_TYPE_MARKET);
     orderRequest.setQuantity("10");
     orderRequest.setDisclosedQuantity("1");
     orderRequest.setPrice("2000");
     orderRequest.setPriceType("LTP");
     orderRequest.setValueType("Absolute");
-    orderRequest.setOrderValidity("DAY");
-    orderRequest.setProductType("BO");
+    orderRequest.setOrderValidity(SamcoConstants.VALIDITY_DAY);
+    orderRequest.setProductType(SamcoConstants.PRODUCT_BO);
     orderRequest.setSquareOffValue("100");
     orderRequest.setStopLossValue("50");
     orderRequest.setTrailingStopLoss("30");
-    OrderResponseBO placeOrderBO = ordersApi.placeOrderBO("c3d1ffff0067c533a0c0bb6fce1bf565", orderRequest);
+    OrderResponseBO placeOrderBO = ordersApi.placeOrderBO(xSessionToken, orderRequest);
     
 #### Sample PlaceOrderBO Response:
 
@@ -505,12 +505,12 @@
   
 #### Parameters:
 
-    session_token, order_number
+    xSessionToken, orderNumber
     
 #### Sample CancelOrderCO Request:
 
     OrdersApi ordersApi = new OrdersApi();
-    CancelOrderResponse cancelOrderResponse = ordersApi.cancelOrderCO(session_token, "200618000000075");
+    CancelOrderResponse cancelOrderResponse = ordersApi.cancelOrderCO(xSessionToken, "200618000000075");
 
 #### sample CancelOrderCO Response:
 
@@ -528,12 +528,12 @@
         
 #### Parameters:
 
-    session_token, order_number
+    xSessionToken, orderNumber
     
 #### Sample CancelOrderBO Request:
 
     OrdersApi ordersApi = new OrdersApi();
-    CancelOrderResponse cancelOrderResponse = ordersApi.cancelOrderBO(session_token, "200619000000003");
+    CancelOrderResponse cancelOrderResponse = ordersApi.cancelOrderBO(xSessionToken, "200619000000003");
 
 #### sample CancelOrderBO Response:
 
@@ -551,12 +551,12 @@
         
 #### Parameters:
 
-    session_token, order_number
+    xSessionToken, orderNumber
     
 #### Sample TriggerOrders Request:
 
     OrdersApi ordersApi = new OrdersApi();
-    TriggerOrdersResponse triggerOrderNumbers = ordersApi.getTriggerOrderNumbers(session_token, "200514000000041");
+    TriggerOrdersResponse triggerOrderNumbers = ordersApi.getTriggerOrderNumbers(xSessionToken, "200514000000041");
 
 #### Sample TriggerOrders Response:
 
@@ -586,12 +586,12 @@
       
 #### Parameters:
 
-    session_token, symbol_name, exchange, expiry_date, strike_price, option_type
+    xSessionToken, searchSymbolName, exchange, expiryDate, strikePrice, optionType
     
 #### Sample OptionChain Request:
 
     OptionApi optionApi = new OptionApi();
-    OptionChainResponse optionChainResponse = optionApi.getOptionContracts(session_token, "INFY", "NSE", "2020-06-25", "950", "CE");
+    OptionChainResponse optionChainResponse = optionApi.getOptionContracts(xSessionToken, "INFY", SamcoConstants.EXCHANGE_NSE, "2020-06-25", "950", "CE");
 
 #### Sample OptionChain Response:
 
@@ -623,12 +623,12 @@
       
 #### Parameters:
 
-    session_token
+    xSessionToken
     
 #### Sample UserLimit Request:
 
     UserLimitsApi userLimitsApi = new UserLimitsApi();
-    LimitResponse limits = userLimitsApi.getLimits(session_token);
+    LimitResponse limits = userLimitsApi.getLimits(xSessionToken);
 
 #### Sample UserLimit Response:
 
@@ -657,12 +657,12 @@
        
 #### Parameters:
 
-    session_token
+    xSessionToken
     
 #### Sample OrderBook Request:
 
     OrdersApi ordersApi = new OrdersApi();
-    OrderBookResponse orderBook = ordersApi.getOrderBook(session_token);
+    OrderBookResponse orderBook = ordersApi.getOrderBook(xSessionToken);
 
 #### Sample OrderBook Response:
 
@@ -711,12 +711,12 @@
        
 #### Parameters:
 
-    session_token
+    xSessionToken
     
 #### Sample TradeBook Request:
 
     TradeBookApi tradeBookApi = new TradeBookApi();
-    TradeBookResponse tradeBook = tradeBookApi.getTradeBook("b2ac54e0e8e1477a87ebfdeda44524d3");
+    TradeBookResponse tradeBook = tradeBookApi.getTradeBook(xSessionToken);
     
 #### Sample TradeBook Response:
  
@@ -765,12 +765,12 @@
        
 #### Parameters:
 
-    session_token
+    xSessionToken
     
 #### Sample Holdings Request:
 
     HoldingsApi holdingsApi = new HoldingsApi();
-    HoldingResponse holding = holdingsApi.getHolding(session_token);
+    HoldingResponse holding = holdingsApi.getHolding(xSessionToken);
 
 #### Sample Holdings Response:
 
@@ -823,12 +823,12 @@
         
 #### Parameters:
 
-    session_token, position_type
+    xSessionToken, positionType
     
 #### Sample Positions Request:
 
     PositionsApi positionsApi = new PositionsApi();
-    PositionResponse positions = positionsApi.getPositions(session_token, "DAY");
+    PositionResponse positions = positionsApi.getPositions(xSessionToken, SamcoConstants.POSITION_TYPE_DAY);
     
 #### Sample Positions Response:
 
@@ -871,21 +871,21 @@
        
 #### Parameters:
 
-    session_token, exchange, symbol, transactionType, positionType, quantityToConvert, fromProductType, toProductType, netQuantity
+    xSessionToken, exchange, symbolName, transactionType, positionType, quantityToConvert, fromProductType, toProductType, netQuantity
     
 #### Sample PositionConverstion Request:
 
     PositionsApi positionsApi = new PositionsApi();
     PositionConversionRequest conversionRequest = new PositionConversionRequest();
     conversionRequest.setSymbolName("RELIANCE");
-    conversionRequest.setExchange("BSE");
-    conversionRequest.setTransactionType("BUY");
-    conversionRequest.setPositionType("DAY");
+    conversionRequest.setExchange(SamcoConstants.EXCHANGE_BSE);
+    conversionRequest.setTransactionType(SamcoConstants.TRANSACTION_TYPE_BUY);
+    conversionRequest.setPositionType(SamcoConstants.POSITION_TYPE_DAY);
     conversionRequest.setQuantityToConvert("2");
-    conversionRequest.setFromProductType("MIS");
-    conversionRequest.setToProductType("CNC");
+    conversionRequest.setFromProductType(SamcoConstants.PRODUCT_MIS);
+    conversionRequest.setToProductType(SamcoConstants.PRODUCT_CNC);
     conversionRequest.setNetQuantity("2");
-    PositionConversionResponse positionConversionResponse = positionsApi.convertPosition(session_token, conversionRequest);
+    PositionConversionResponse positionConversionResponse = positionsApi.convertPosition(xSessionToken, conversionRequest);
 
 #### Sample PostionConverstion Response:
 
@@ -902,12 +902,12 @@
        
 #### Parameters:
 
-    session_token, exchange, symbol, fromDate, toDate
+    xSessionToken, exchange, symbolName, fromDate, toDate
     
 #### Sample HistoricalCandleData Request:
 
     HistoricalCandleDataApi historicalCandleDataApi = new HistoricalCandleDataApi();
-    HistoricalCandleResponse historicalCandleData = historicalCandleDataApi.getHistoricalCandleData(session_token, "INFY", "2019-01-01", "BSE", "2020-02-01");
+    HistoricalCandleResponse historicalCandleData = historicalCandleDataApi.getHistoricalCandleData(xSessionToken, "INFY", "2019-01-01", SamcoConstants.EXCHANGE_BSE, "2020-02-01");
 
 #### Sample HistoricalCandleData respone:
 
@@ -947,12 +947,12 @@
         
 #### Parameters:
 
-    session_token, indexName, fromDate, toDate
+    xSessionToken, indexName, fromDate, toDate
     
 #### Sample IndexHistoricalCandleData Request:
 
     HistoricalCandleDataApi historicalCandleDataApi = new HistoricalCandleDataApi();
-    IndexCandleDataResponse indexCandleDataResponse = historicalCandleDataApi.getIndexCandleData(session_token, "NIFTY 200", "2015-03-04", "2017-03-05");
+    IndexCandleDataResponse indexCandleDataResponse = historicalCandleDataApi.getIndexCandleData(xSessionToken, "NIFTY 200", "2015-03-04", "2017-03-05");
 
 #### Sample IndexHistoricalCandleData Response:
 
@@ -994,12 +994,12 @@
       
 #### Parameters:
 
-    session_token, exchange, symbol, fromDate, toDate
+    xSessionToken, exchange, symbolName, fromDate, toDate
     
 #### Sample IntraDayCandleData Request:
 
     IntraDayCandleDataApi intraDayCandleDataApi = new IntraDayCandleDataApi();
-    IntraDayCandleResponses intraDayCandleResponses = intraDayCandleDataApi.getIntradayCandleData(session_token, "INFY", "2020-04-20", "BSE", "2020-05-10");
+    IntraDayCandleResponses intraDayCandleResponses = intraDayCandleDataApi.getIntradayCandleData(xSessionToken, "INFY", "2020-04-20", SamcoConstants.EXCHANGE_BSE, "2020-05-10");
 
 #### Sample IntraDayCandleData Response:
 
@@ -1036,12 +1036,12 @@
       
 #### Parameters:
 
-    session_token, indexName, fromDate, toDate
+    xSessionToken, indexName, fromDate, toDate
     
 #### Sample IndexIntraDayCandleData Request:
 
     IntraDayCandleDataApi intraDayCandleDataApi = new IntraDayCandleDataApi();
-    IndexIntraDayCandleDataResponse indexIntradayCandleData = intraDayCandleDataApi.getIndexIntradayCandleData(session_token, "NIFTY 200", "2020-01-15", "2020-02-10");
+    IndexIntraDayCandleDataResponse indexIntradayCandleData = intraDayCandleDataApi.getIndexIntradayCandleData(xSessionToken, "NIFTY 200", "2020-01-15", "2020-02-10");
 
 #### Sample IndexIntraDayCandleData Response:
 
@@ -1080,12 +1080,12 @@
       
 #### Parameters:
 
-    session_token
+    xSessionToken
     
 #### Sample Logout Request:
 
     UserLogoutApi logoutApi = new UserLogoutApi();
-    SimpleResponse logout = logoutApi.logout(session_token);
+    SimpleResponse logout = logoutApi.logout(xSessionToken);
 
 #### Sample Logout Response:
 

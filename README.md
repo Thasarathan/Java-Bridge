@@ -63,30 +63,30 @@
 			   }
 
 
-   <a href="#login_api_autoscroll">To Check Login Api Documentation</a>
-   <a href="#quote_api_autoscroll">To Check Quote Api Documentation</a>
-   <a href="#equity_search_api_autoscroll">To Check Equity search Api Documentation</a>
-   <a href="#placeorder_api_autoscroll">To Check Place Order Api Documentation</a>
-   <a href="#order_status_api_autoscroll">To Check order Status Api Documentation</a>
-   <a href="#modify_order_api_autoscroll">To Check Modify Order Api Documentation</a>
-   <a href="#cancel_order_api_autoscroll">To Check Cancel Order Api Documentation</a>
-   <a href="#placeorderCO_api_autoscroll">To Check Place Order CO Api Documentation</a>
-   <a href="#placeorderBO_api_autoscroll">To Check Place Order BO Api Documentation</a>
-   <a href="#cancelorderCO_api_autoscroll">To Check Cancel Order CO Api Documentation</a>
-   <a href="#cancelorderBO_api_autoscroll">To Check Cancel Order BO Api Documentation</a>
-   <a href="#triggerorder_api_autoscroll">To Check Trigger Order Api Documentation</a>
-   <a href="#optionchain_api_autoscroll">To Check Option Chain Api Documentation</a>
-   <a href="#limit_api_autoscroll">To Check Limit Api Documentation</a>
-   <a href="#orderbook_api_autoscroll">To Check Order Book Api Documentation</a>
-   <a href="#tradebook_api_autoscroll">To Check Trade Book Api Documentation</a>
-   <a href="#holdings_api_autoscroll">To Check Holdings Api Documentation</a>
-   <a href="#positions_api_autoscroll">To Check Positions Api Documentation</a>
-   <a href="#positionConversion_api_autoscroll">To Check Position Conversion Api Documentation</a>
-   <a href="#historicalCandleData_api_autoscroll">To Check Historical CandleData Api Documentation</a>
-   <a href="#indexHistoricalCandleData_api_autoscroll">To Check IndexHistorical CandleData Api Documentation</a>
-   <a href="#intraDayCandleData_api_autoscroll">To Check IntraDay CandleData Api Documentation</a>
-   <a href="#indexIntraDayCandleData_api_autoscroll">To Check IndexIntraDay CandleData Api Documentation</a>
-   <a href="#logout_api_autoscroll">To Check Logout Api Documentation</a>
+ *  <a href="#login_api_autoscroll">To Check Login Api Documentation</a>
+ *  <a href="#quote_api_autoscroll">To Check Quote Api Documentation</a>
+ *  <a href="#equity_search_api_autoscroll">To Check Equity search Api Documentation</a>
+ *  <a href="#placeorder_api_autoscroll">To Check Place Order Api Documentation</a>
+ *  <a href="#order_status_api_autoscroll">To Check order Status Api Documentation</a>
+ *  <a href="#modify_order_api_autoscroll">To Check Modify Order Api Documentation</a>
+ *  <a href="#cancel_order_api_autoscroll">To Check Cancel Order Api Documentation</a>
+ *  <a href="#placeorderCO_api_autoscroll">To Check Place Order CO Api Documentation</a>
+ *  <a href="#placeorderBO_api_autoscroll">To Check Place Order BO Api Documentation</a>
+ *  <a href="#cancelorderCO_api_autoscroll">To Check Cancel Order CO Api Documentation</a>
+ *  <a href="#cancelorderBO_api_autoscroll">To Check Cancel Order BO Api Documentation</a>
+ *  <a href="#triggerorder_api_autoscroll">To Check Trigger Order Api Documentation</a>
+ *  <a href="#optionchain_api_autoscroll">To Check Option Chain Api Documentation</a>
+ *  <a href="#limit_api_autoscroll">To Check Limit Api Documentation</a>
+ *  <a href="#orderbook_api_autoscroll">To Check Order Book Api Documentation</a>
+ *  <a href="#tradebook_api_autoscroll">To Check Trade Book Api Documentation</a>
+ *  <a href="#holdings_api_autoscroll">To Check Holdings Api Documentation</a>
+ *  <a href="#positions_api_autoscroll">To Check Positions Api Documentation</a>
+ *  <a href="#positionConversion_api_autoscroll">To Check Position Conversion Api Documentation</a>
+ *  <a href="#historicalCandleData_api_autoscroll">To Check Historical CandleData Api Documentation</a>
+ *  <a href="#indexHistoricalCandleData_api_autoscroll">To Check IndexHistorical CandleData Api Documentation</a>
+ *  <a href="#intraDayCandleData_api_autoscroll">To Check IntraDay CandleData Api Documentation</a>
+ *  <a href="#indexIntraDayCandleData_api_autoscroll">To Check IndexIntraDay CandleData Api Documentation</a>
+ *  <a href="#logout_api_autoscroll">To Check Logout Api Documentation</a>
 
 
 ### <h3 id="login_api_autoscroll">Login Api:</h3>

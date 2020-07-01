@@ -1095,3 +1095,58 @@
       "status" : "Success",
       "statusMessage" : "User has successfully logged out"
     }
+    
+ 
+## Constant List:
+
+   This section contains the list of possible constant values that can be passed for input attributes like exchanges, product types etc.
+   
+### Product types:
+   
+    PRODUCT_MIS 
+    PRODUCT_CNC
+    PRODUCT_NRML
+    PRODUCT_CO
+    PRODUCT_BO
+ 
+    Example:- setProductType(SamcoConstants.PRODUCT_MIS)
+ 
+### Exchanges:
+
+    EXCHANGE_NSE
+    EXCHANGE_BSE
+    EXCHANGE_NFO
+    EXCHANGE_CDS
+    EXCHANGE_MCX
+    
+    Example:- setExchange(SamcoConstants.EXCHANGE_BSE)
+ 
+### Transaction types:
+
+    TRANSACTION_TYPE_BUY
+    TRANSACTION_TYPE_SELL
+    
+    Example:- setTransactionType(SamcoConstants.TRANSACTION_TYPE_BUY)
+ 
+### Order types:
+
+    ORDER_TYPE_MARKET
+    ORDER_TYPE_LIMIT 
+    ORDER_TYPE_SLM 
+    ORDER_TYPE_SL 
+    
+     Example:- setOrderType(SamcoConstants.ORDER_TYPE_MARKET);
+
+### Validity types:
+
+    VALIDITY_DAY 
+    VALIDITY_IOC 
+    
+    Example:- setOrderValidity(SamcoConstants.VALIDITY_DAY)
+    
+### Position types:
+
+    POSITION_TYPE_DAY
+    POSITION_TYPE_NET
+    
+    Example:- setPositionType(SamcoConstants.POSITION_TYPE_DAY)

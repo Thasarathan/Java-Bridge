@@ -48,18 +48,18 @@
 				   
 	- Install jar file into your local .m2 repository using this cmd and add this dependency into pom.xml file ...
 	
-	  mvn install:install-file -Dfile="where the jar is located" -DgroupId=io.swagger -DartifactId=swagger-java-client -Dversion=1.0.0 -Dpackaging=jar
+	  mvn install:install-file -Dfile="where the jar is located" -DgroupId=in.samco -DartifactId=stocknote-bridge-java -Dversion=1.0.0 -Dpackaging=jar
 
         	   <dependency>
-		           <groupId>io.swagger</groupId>
-		           <artifactId>swagger-java-client</artifactId>
+		           <groupId>in.samco</groupId>
+		           <artifactId>stocknote-bridge-java</artifactId>
 		           <version>1.0.0</version>
 	           </dependency>
 		   
       - for gradle user 
    
                   dependencies {
-   			   compile group: 'in.samco', name: 'stockNote-api-Java-Bridge', version: '1.0.0'
+   			   compile group: 'in.samco', name: 'stocknote-bridge-java', version: '1.0.0'
 			   }
 
 

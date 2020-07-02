@@ -32,7 +32,7 @@
 
 ### Prerequisites 
 
-- Java 7 JDK or Java 8 JDK
+- Java 8 JDK
 
 ### Steps
 

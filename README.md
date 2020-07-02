@@ -53,8 +53,8 @@
      * For gradle user 
 
                     dependencies {
-   			   compile group: 'in.samco', name: 'stocknote-bridge-java', version: '1.0.0'
-			   }
+   			             compile group: 'in.samco', name: 'stocknote-bridge-java', version: '1.0.0'
+			         }
 
      * Adding jar to build path in eclipse based IDE's 
      

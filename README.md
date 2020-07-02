@@ -6,64 +6,67 @@
 
 ## Overview
 
-   - Java SDK is created for clients to easily access our Stocknote API platform from Java based applications.
+   * Java SDK is created for clients to easily access our Stocknote API platform from Java based applications.
    
-   - Java SDK will be exposed as a downloadable JAR file
+   * Java SDK will be exposed as a downloadable JAR file
    
-   - Include the JAR file into their build path and access the trade APIs using the inbuilt classes in Java SDK
+   * Include the JAR file into their build path and access the trade APIs using the inbuilt classes in Java SDK
    
-   - Different Java methods will be exposed in the SDK for handling the multiple Stocknote APIs
+   * Different Java classes and methods will be exposed in the SDK for handling the multiple Stocknote APIs
    
-   - As an initial step, the client will use the Login method and in the Java response bean object, they will get user session identifier. Based on the user session identifier, they can able to access other API’s
+   * As an initial step, the client will use the Login method and in the Java response bean object, they will get user session identifier. Based on the user session identifier, they will be able to access other API’s
    
-   - Client can process the API response appropriately
+   * Client can process the API response appropriately
    
-   - With trade API being a REST based interface and interfaces using JSON request and response messages, Java SDK provides request and response objects as native Java beans (after will be appropriate de-serialisation)
+   * With StockNote API being a REST based interface and interfaces using JSON request and response messages, Java SDK provides request and response objects as native Java beans (after appropriate serialisation / de-serialisation)
    
-   - Through ApiClient.setBasePath("") setter method we can pass the environment name which we want to connect 
-   
-   - If doesn't provide any environment then Java SDK by default invokes production version of Stocknote API
-   
-#### Sample Request for environment changes:   
+### Note
 
-    ApiClient apiClient = new ApiClient();
-    apiClient.setBasePath(basePath);
-    Configuration.setDefaultApiClient(apiClient);
-
+   * All API response displayed in this documentation are JSON representation of response java object 
+   
 ### Prerequisites 
 
 - Java 8 JDK
 
 ### Steps
 
-1. Get Java Bridge Jar
+1. Get StockNote Java Bridge Jar from the below link
 
-	- Goto https://github.com/Thasarathan/Java-Bridge/tree/master/dist
+	*  https://github.com/Thasarathan/Java-Bridge/blob/master/dist/swagger-java-client.jar
 
 2. Setup Jar File
 
-	- Goto << JavaBuild Path --> Libraries --> Add External JARs... >>
-	
-	                           or
-				   
-	- Install jar file into your local .m2 repository using this cmd and add this dependency into pom.xml file ...
-	
-	  mvn install:install-file -Dfile="where the jar is located" -DgroupId=in.samco -DartifactId=stocknote-bridge-java -Dversion=1.0.0 -Dpackaging=jar
+    * For maven user
 
-        	   <dependency>
+    * Install jar file into your local .m2 repository using the below command :
+    
+      mvn install:install-file -Dfile="where the jar is located" -DgroupId=in.samco -DartifactId=stocknote-bridge-java -Dversion=1.0.0 -Dpackaging=jar
+	
+    * Add the below dependency into pom.xml file .
+	
+	            <dependency>
 		           <groupId>in.samco</groupId>
 		           <artifactId>stocknote-bridge-java</artifactId>
 		           <version>1.0.0</version>
 	           </dependency>
-		   
-      - for gradle user 
-   
-                  dependencies {
+
+     * For gradle user 
+
+                    dependencies {
    			   compile group: 'in.samco', name: 'stocknote-bridge-java', version: '1.0.0'
 			   }
+
+     * Adding jar to build path in eclipse based IDE's 
+     
+        Goto  JavaBuild Path --> Libraries --> Add External JARs --> Include stocknote-bridge-java-1.0.0.jar 
+	
+		   
+      - 
+   
+                 
 			   
 			   
-###  List of API
+###  List of supported API
 
  *  <a href="#login_api_autoscroll">Login</a>
  *  <a href="#equity_search_api_autoscroll">SearchEquityDerivative</a>
@@ -94,7 +97,7 @@
 
 ### <h3 id="login_api_autoscroll">Login Api:</h3>
 
-   The Java Bridge allow the user authentication using the UserLoginApi. A valid StockNote Trading Account and subscription to StockNote API Services is a pre-requisite for successful authentication.
+   Java Bridge allows user authentication using UserLoginApi. A valid StockNote Trading Account and subscription to StockNote API Services is a pre-requisite for successful authentication.
 
 #### Parameters:
 
@@ -135,7 +138,7 @@
     ]
    }
     
-#### Using that session we can call any other api’s through java sdk
+#### Using the session token we can call other API’s through java SDK
 
 ### <h3 id="equity_search_api_autoscroll">Search Equity & Derivative:</h3>
 
@@ -868,7 +871,7 @@
 
 ### <h3 id="positionSquareOff_api_autoscroll">PositionSquareOff:</h3>
 
-   The PositionSquareoff function square_off_position() helps the user to SqareOff existing position. Mostly used in day trading, in which user buy or sell a particular quantity of a stock and later in the day reverse the transaction to earn a profit. A user Covering his buy order with a sell order or a user covering his sell order with a buy order before market close for that particular day.
+   The PositionsApi class helps the user to Square Off existing position. Mostly used in day trading, in which user buy or sell a particular quantity of a stock and later in the day reverse the transaction to earn a profit.
        
 #### Parameters:
 
